@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/edtText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="escriba un texto..."
+        android:inputType="textPersonName"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <Button
+        android:id="@+id/btnAlignR"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Alinear a la derecha" />
+
+    <Button
+        android:id="@+id/btnAlignL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Alinear a la izquierda" />
+</LinearLayout>
