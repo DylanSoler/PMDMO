@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">FragmentPrueba</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="fr1">Fragment1 androidskate Fragment1 androidskate Fragment1 androidskate Fragment1 androidskate Fragment1 androidskate Fragment1 androidskate Fragment1 androidskate Fragment1 androidskate Fragment1 androidskate
+        Fragment1 androidskate Fragment1 androidskate Fragment1 androidskate Fragment1 androidskate Fragment1 androidskate Fragment1 androidskate Fragment1 androidskate Fragment1 androidskate
+    </string>
+
+    <string name="fr2">Fragment2 androidCat Fragment2 androidCat Fragment2 androidCat  Fragment2 androidCat Fragment2 androidCat Fragment2 androidCat Fragment2 androidCat  Fragment2 androidCat
+        Fragment2 androidCat Fragment2 androidCat Fragment2 androidCat  Fragment2 androidCat Fragment2 androidCat Fragment2 androidCat Fragment2 androidCat  Fragment2 androidCat
+        Fragment2 androidCat Fragment2 androidCat Fragment2 androidCat  Fragment2 androidCat
+    </string>
+
 </resources>
