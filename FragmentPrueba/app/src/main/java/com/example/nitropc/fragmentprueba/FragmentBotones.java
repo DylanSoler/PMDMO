@@ -35,21 +35,25 @@ public class FragmentBotones extends Fragment implements View.OnClickListener {
         return view;
     }
 
+
     @Override
     public void onClick(View view) {
 
+        MainActivity ma = (MainActivity) getActivity();
 
         switch (view.getId()){
 
             case R.id.button1 :
 
-                vmopc.getOpcion().setValue(1);
+                //vmopc.getOpcion().postValue(1);
+                ma.modificarOpcion(1);
 
                 break;
 
             case R.id.button2 :
 
-                vmopc.getOpcion().setValue(2);
+                //vmopc.getOpcion().setValue(2);
+                 ma.modificarOpcion(2);
 
                 break;
 

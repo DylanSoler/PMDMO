@@ -26,6 +26,15 @@ public class MainActivity extends FragmentActivity {
 
         vmopc = ViewModelProviders.of(this).get(ViewModelOpcion.class);
 
+        FragmentTransaction frTrans = getSupportFragmentManager().beginTransaction();
+
+        FragmentBotones frbtn = new FragmentBotones();
+
+        frTrans.add(R.id.fragBtn, frbtn);
+        frTrans.addToBackStack(null);
+
+        frTrans.commit();
+
 
         final Observer<Integer> opcionObserver = new Observer<Integer>() {
             @Override
@@ -67,11 +76,20 @@ public class MainActivity extends FragmentActivity {
                     switch (integer){
                         case 1:
 
+                            Fragment1 fr1= new Fragment1();
+                            fr1.setArguments(getIntent().getExtras());
 
+                            getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, fr1).commit();
 
                             break;
 
                         case 2:
+
+                            Fragment2 fr2= new Fragment2();
+                            fr2.setArguments(getIntent().getExtras());
+
+                            getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, fr2).commit();
+
 
                             break;
                     }
@@ -81,6 +99,12 @@ public class MainActivity extends FragmentActivity {
         };
 
         vmopc.getOpcion().observe(this,opcionObserver);
+    }
+
+    public void modificarOpcion(int opc){
+
+        vmopc.getOpcion().setValue(opc);
+
     }
 
 }
