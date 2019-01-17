@@ -1,5 +1,6 @@
 package com.example.dasoler.sudokaso;
 
+import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -33,7 +34,11 @@ public class FragmentListaSudokus extends ListFragment {
     public void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
 
-        Toast.makeText(getActivity(), "Ha pulsado " + niveles[position],
-                Toast.LENGTH_SHORT).show();
+        /*Toast.makeText(getActivity(), "Ha pulsado " + niveles[position],
+                Toast.LENGTH_SHORT).show();*/
+
+        ViewModelActivity2 vm = ViewModelProviders.of(getActivity()).get(ViewModelActivity2.class);
+
+        vm.getOpcion().setValue(position+1);
      }
 }
