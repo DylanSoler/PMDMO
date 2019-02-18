@@ -64,7 +64,8 @@
         android:width="160dp"
         app:layout_constraintBottom_toTopOf="@+id/frlayoutsudoku"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="invisible"/>
 
 
 </android.support.constraint.ConstraintLayout>
