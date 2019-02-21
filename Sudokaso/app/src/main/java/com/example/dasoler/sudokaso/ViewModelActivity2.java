@@ -14,17 +14,15 @@ import java.util.concurrent.Executors;
 
 public class ViewModelActivity2 extends ViewModel
 {
-
+    //Propiedades privadas
     private MutableLiveData<List<Numero>> sudokuEnJuego;
-
-    private List<Integer> sudokuResuelto1;
-
-    private List<Integer> sudokuUsuario;
 
     private MutableLiveData<Integer> opcion;
 
-    //------------------------------------------------------------------------------
+    private MutableLiveData<Boolean> guardar;
 
+
+    //Propiedades publicas
     public MutableLiveData<Integer> getOpcion() {
 
         if(opcion == null) {
@@ -43,17 +41,13 @@ public class ViewModelActivity2 extends ViewModel
         return sudokuEnJuego;
     }
 
-    /*public List<Numero> getSudokuEnJuego() {
-        return sudokuEnJuego;
+    public MutableLiveData<Boolean> getGuardar() {
+
+        if(guardar == null) {
+            guardar = new MutableLiveData<>();
+        }
+
+        return guardar;
     }
-
-    public void setSudokuEnJuego(List<Numero> sudokuEnJuego) {
-        this.sudokuEnJuego = sudokuEnJuego;
-    }*/
-
-    public List<Integer> getSudokuResuelto1() {
-        return sudokuResuelto1;
-    }
-
 
 }

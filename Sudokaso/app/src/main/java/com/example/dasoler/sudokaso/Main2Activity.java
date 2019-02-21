@@ -83,6 +83,22 @@ public class Main2Activity extends FragmentActivity {
 
         vm.getOpcion().observe(this,opcionObserver);
 
+
+        //observer sudoku en juego
+        final Observer<Boolean> guardarSudokuObserver = new Observer<Boolean>() {
+            @Override
+            public void onChanged(@Nullable Boolean guardar) {
+
+                if(guardar){
+                for(Numero n:vm.getSudokuEnJUego().getValue())
+                { rep.updateNumero(n,getApplicationContext()); }
+                vm.getGuardar().postValue(false);
+                }
+            }
+        };
+
+        vm.getGuardar().observe(this,guardarSudokuObserver);
+
     }
 
 }

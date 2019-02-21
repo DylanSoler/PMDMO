@@ -7,10 +7,13 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.example.dasoler.sudokaso.room.DaoNumeros;
 import com.example.dasoler.sudokaso.room.Numero;
@@ -23,22 +26,24 @@ import java.util.Observable;
 import java.util.Observer;
 import java.util.concurrent.Executors;
 
+//implements TextWatcher
 
-
-public class FragmentSudoku extends Fragment
-{
+public class FragmentSudoku extends Fragment  {
 
     RecyclerView rv_sudoku;
     MyAdapter adapter;
     List<Numero> sudoku = new ArrayList<Numero>();
     Button btn;
     SudokuRepository rep = new SudokuRepository();
-    ViewModelActivity2 vm = ViewModelProviders.of(getActivity()).get(ViewModelActivity2.class);
+    ViewModelActivity2 vm;
+    EditText ed;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         //return inflater.inflate(R.layout.prueba, container, false);
+
+        vm = ViewModelProviders.of(getActivity()).get(ViewModelActivity2.class);
 
         View v = inflater.inflate(R.layout.sudoku,container,false);
 
@@ -68,6 +73,10 @@ public class FragmentSudoku extends Fragment
 
         btn = (Button) getActivity().findViewById(R.id.btnComprobar);
         btn.setVisibility(View.VISIBLE);
+
+        ed = (EditText) getActivity().findViewById(R.id.edCelda);
+
+        //ed.addTextChangedListener(tw);
     }
 
 
@@ -79,4 +88,33 @@ public class FragmentSudoku extends Fragment
 
         //vm.getSudokuEnJUego();
     }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        sudoku = adapter.getItems();
+        vm.getSudokuEnJUego().postValue(sudoku);
+        vm.getGuardar().postValue(true);
+    }
+//------------------------------------------------------------------------------------------------------------------
+//Probando
+    /*TextWatcher tw = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable editable) {
+
+        }
+    };*/
+
+//-------------------------------------------------------------------------------------------------------------------
 }
