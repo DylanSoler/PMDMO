@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.dasoler.sudokaso.room.DaoNumeros;
 import com.example.dasoler.sudokaso.room.Numero;
@@ -28,7 +29,7 @@ import java.util.concurrent.Executors;
 
 //implements TextWatcher
 
-public class FragmentSudoku extends Fragment  {
+public class FragmentSudoku extends Fragment implements View.OnClickListener {
 
     RecyclerView rv_sudoku;
     MyAdapter adapter;
@@ -73,6 +74,7 @@ public class FragmentSudoku extends Fragment  {
 
         btn = (Button) getActivity().findViewById(R.id.btnComprobar);
         btn.setVisibility(View.VISIBLE);
+        btn.setOnClickListener(this);
 
         ed = (EditText) getActivity().findViewById(R.id.edCelda);
 
@@ -86,7 +88,6 @@ public class FragmentSudoku extends Fragment  {
         btn = (Button) getActivity().findViewById(R.id.btnComprobar);
         btn.setVisibility(View.INVISIBLE);
 
-        //vm.getSudokuEnJUego();
     }
 
     @Override
@@ -97,24 +98,26 @@ public class FragmentSudoku extends Fragment  {
         vm.getSudokuEnJUego().postValue(sudoku);
         vm.getGuardar().postValue(true);
     }
-//------------------------------------------------------------------------------------------------------------------
-//Probando
-    /*TextWatcher tw = new TextWatcher() {
-        @Override
-        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
+    @Override
+    public void onClick(View view) {
+
+        sudoku = adapter.getItems();
+        Boolean correcto = true;
+        int[] solucion = vm.getSolucionSudoku1();
+        String text;
+
+        for(int i=0; i<81 && correcto; i++)
+        {
+            if(sudoku.get(i).getNum()!=solucion[i])
+                correcto = false;
         }
 
-        @Override
-        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+        if(correcto)
+           text = "Enhorabuena puto";
+        else
+           text = "No tio, lo siento, fallaste";
 
-        }
-
-        @Override
-        public void afterTextChanged(Editable editable) {
-
-        }
-    };*/
-
-//-------------------------------------------------------------------------------------------------------------------
+        Toast.makeText(getContext(), text, Toast.LENGTH_LONG).show();
+    }
 }

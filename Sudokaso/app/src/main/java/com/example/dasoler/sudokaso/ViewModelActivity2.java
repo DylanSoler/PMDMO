@@ -21,6 +21,8 @@ public class ViewModelActivity2 extends ViewModel
 
     private MutableLiveData<Boolean> guardar;
 
+    private int[]solucionSudoku1 = {3,6,2,5,1,7,8,4,9,7,8,5,4,9,6,3,1,2,1,9,4,2,8,3,7,5,6,5,7,1,6,3,2,4,9,8,6,4,9,8,7,1,5,2,3,8,2,3,9,5,4,1,6,7,4,3,7,1,2,9,6,8,5,9,1,8,7,6,5,2,3,4,2,5,6,3,4,8,9,7,1};
+
 
     //Propiedades publicas
     public MutableLiveData<Integer> getOpcion() {
@@ -50,4 +52,11 @@ public class ViewModelActivity2 extends ViewModel
         return guardar;
     }
 
+    public int[] getSolucionSudoku1() {
+        return solucionSudoku1;
+    }
+
+    public void setSolucionSudoku1(int[] solucionSudoku1) {
+        this.solucionSudoku1 = solucionSudoku1;
+    }
 }

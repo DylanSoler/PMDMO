@@ -77,6 +77,8 @@ public class Main2Activity extends FragmentActivity {
 
                             frTrans.commit();
 
+                            vm.getSudokuEnJUego().postValue(rep.obtenerSudoku(getApplicationContext(),vm.getOpcion().getValue()));
+
                 }
             }
         };

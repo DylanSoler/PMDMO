@@ -36,7 +36,7 @@
 
     <FrameLayout
         android:id="@+id/frlayoutsudoku"
-        android:layout_width="727dp"
+        android:layout_width="627dp"
         android:layout_height="match_parent"
         android:layout_marginStart="44dp"
         android:layout_marginTop="144dp"
